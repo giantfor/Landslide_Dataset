@@ -1,0 +1,74 @@
+Algorithm: Landslide Risk Analysis in Sukajaya and Cigudeg
+Input: Geospatial data (DEM, CHIRPS, Sentinel-2, HydroSHEDS)
+Output: High-risk areas and sample data exported as CSV
+
+1. # Define the Region
+2. Function defineRegion()
+3.     Initialize geometry as:
+4.         Polygon covering Sukajaya and Cigudeg Districts
+5.     Return geometry
+
+6. # Load and Process Elevation Data
+7. Function processElevationData(geometry)
+8.     Load DEM data from USGS
+9.     Calculate slope from DEM
+10.    Return slope
+
+11. # Load Rainfall Data
+12. Function processRainfallData(geometry)
+13.    Load CHIRPS dataset
+14.    Filter by date range (2022) and region (geometry)
+15.    Sum rainfall over the year
+16.    Return total rainfall
+
+17. # Load Vegetation Data
+18. Function processVegetationData(geometry)
+19.    Load Sentinel-2 dataset
+20.    Calculate NDVI for each image
+21.    Select median NDVI within the region
+22.    Return NDVI image
+
+23. # Process River Data
+24. Function processRiverData(geometry)
+25.    Load HydroSHEDS river dataset
+26.    Filter rivers within the region
+27.    Convert river features to raster
+28.    Calculate distance from rivers
+29.    Return river distance image
+
+30. # Calculate Soil Stability
+31. Function calculateStability(slope)
+32.    Calculate stability index: 1 / (1 + slope)
+33.    Return stability index
+
+34. # Combine All Factors
+35. Function combineFactors(stability, rainfall, NDVI, riverDistance, slope)
+36.    Merge stability, rainfall, NDVI, riverDistance, and slope into one image
+37.    Return combined image
+
+38. # Identify High-Risk Areas
+39. Function identifyHighRiskAreas(combinedImage)
+40.    Select areas where:
+41.        RiverDistance < 500 meters
+42.        Slope > 20 degrees
+43.    Mask non-risk areas
+44.    Return high-risk areas
+
+45. # Visualize Results
+46. Function visualizeResults(highRiskAreas)
+47.    Display high-risk areas on the map
+48.    Return visualization
+
+49. # Extract Sample Points
+50. Function extractSamplePoints(highRiskAreas, combinedImage)
+51.    Generate 50 sample points from high-risk areas
+52.    Add coordinates (longitude, latitude) to each sample
+53.    Return sample data
+
+54. # Export Data
+55. Function exportData(samples)
+56.    Save sample data as CSV
+57.    Include longitude, latitude, and all factors
+58.    Return export confirmation
+
+59. END.
