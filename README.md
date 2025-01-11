@@ -1,4 +1,4 @@
-# Landslide_Dataset
+# Landslide_Dataset_Bogor_Indoensia
 Dataset map landslide focus on Google Earth Bogor District Indonesia
 ![Bogormap](https://github.com/user-attachments/assets/b6d39bee-9a0d-4892-b29d-6f145fd883a6)
 
