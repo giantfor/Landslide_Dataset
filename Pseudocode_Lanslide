@@ -1,4 +1,4 @@
-Algorithm: Landslide Risk Analysis in Sukajaya and Cigudeg
+Algorithm: Landslide Risk Analysis in Sukajaya and Cigudeg (Bogor Region Area, Indonesia)
 Input: Geospatial data (DEM, CHIRPS, Sentinel-2, HydroSHEDS)
 Output: High-risk areas and sample data exported as CSV
 
